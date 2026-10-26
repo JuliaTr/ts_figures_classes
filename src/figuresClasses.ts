@@ -34,9 +34,13 @@ export class Triangle implements Figure {
       (side: number) => side <= 0,
     );
 
-    if (hasInvalidSide || this.longestSide >= this.sumSides) {
+    if (hasInvalidSide) {
+      throw new Error('All sides should be greater than 0.');
+    }
+
+    if (this.longestSide >= this.sumSides) {
       throw new Error(
-        `Sides ${this.a}, ${this.b}, ${this.c} cannot form a ${this.shape}`,
+        `Sides ${this.a}, ${this.b}, ${this.c} cannot form a ${this.shape}.`,
       );
     }
   }
