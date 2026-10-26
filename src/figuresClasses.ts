@@ -41,17 +41,17 @@ export class Triangle implements Figure {
     }
   }
 
-  sortSides(): number[] {
+  private sortSides(): number[] {
     this.sides.sort((a: number, b: number) => a - b);
 
     return this.sides;
   }
 
-  getLongestSide(): number {
+  private getLongestSide(): number {
     return this.sortedSides[2];
   }
 
-  sumTwoSides(): number {
+  private sumTwoSides(): number {
     return this.sortedSides[0] + this.sortedSides[1];
   }
 
@@ -66,7 +66,16 @@ export class Triangle implements Figure {
 }
 
 // export class Circle implements Figure {
-//   constructor(shape: number, color: string, radius) {}
+//   public shape: Shape = 'circle';
+
+//   constructor(
+//     public color: Color,
+//     public radius: number,
+//   ) {}
+
+//   getArea(): number {
+//     return 2 * Math.PI * this.radius;
+//   }
 // }
 
 // export class Rectangle implements Figure {
@@ -81,9 +90,9 @@ export class Triangle implements Figure {
 //   return typeof figure;
 // }
 
-// new Rectangle('blue', 2, 0) // throws an error
-new Triangle('red', 1, 2, 3);
-// throws an error: sides 1, 2 and 3 can't form a triangle
+// // new Rectangle('blue', 2, 0) // throws an error
+// new Triangle('red', 1, 2, 3);
+// // throws an error: sides 1, 2 and 3 can't form a triangle
 
 // const redRectangle = new Rectangle('red', 3, 5);
 // getInfo(redRectangle) === 'A red rectangle - 15';
