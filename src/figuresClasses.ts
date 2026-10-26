@@ -115,15 +115,3 @@ export class Rectangle implements Figure {
 export function getInfo(figure: Figure): string {
   return `A ${figure.color} ${figure.shape} - ${figure.getArea()}`;
 }
-
-// new Rectangle('blue', 2, 0); // throws an error
-// new Triangle('red', 1, 2, 3);
-// // throws an error: sides 1, 2 and 3 can't form a triangle
-
-// const redRectangle = new Rectangle('red', 3, 5);
-
-// getInfo(redRectangle); // 'A red rectangle - 15';
-
-// const greenCircle = new Circle('green', 1);
-
-// getInfo(greenCircle); // 'A green circle - 3.14';
