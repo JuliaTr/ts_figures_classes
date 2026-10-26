@@ -69,18 +69,24 @@ export class Triangle implements Figure {
   }
 }
 
-// export class Circle implements Figure {
-//   public shape: Shape = 'circle';
+export class Circle implements Figure {
+  public shape: Shape = 'circle';
 
-//   constructor(
-//     public color: Color,
-//     public radius: number,
-//   ) {}
+  constructor(
+    public color: Color,
+    public radius: number,
+  ) {
+    if (radius <= 0) {
+      throw new Error('Radius should be greater than 0.');
+    }
+  }
 
-//   getArea(): number {
-//     return 2 * Math.PI * this.radius;
-//   }
-// }
+  getArea(): number {
+    const areaCircle: number = Math.PI * this.radius ** 2;
+
+    return Math.floor(areaCircle * 100) / 100;
+  }
+}
 
 // export class Rectangle implements Figure {
 //   constructor(shape: number, color: string, width, height) {}
@@ -90,9 +96,9 @@ export class Triangle implements Figure {
 //   // }
 // }
 
-// export function getInfo(figure: Figure): string {
-//   return typeof figure;
-// }
+export function getInfo(figure: Figure): string {
+  return `A ${figure.color} ${figure.shape} - ${figure.getArea()}`;
+}
 
 // // new Rectangle('blue', 2, 0) // throws an error
 // new Triangle('red', 1, 2, 3);
@@ -101,5 +107,6 @@ export class Triangle implements Figure {
 // const redRectangle = new Rectangle('red', 3, 5);
 // getInfo(redRectangle) === 'A red rectangle - 15';
 
-// const greenCircle = new Circle('green', 1);
-// getInfo(greenCircle) === 'A green circle - 3.14';
+const greenCircle = new Circle('green', 1);
+
+getInfo(greenCircle); // 'A green circle - 3.14';
